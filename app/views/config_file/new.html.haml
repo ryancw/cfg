@@ -1,0 +1,22 @@
+= form_for :config_file, url: config_file_index_path do |f|
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title
+
+  %p
+    = f.label :author
+    %br
+    = f.text_field :author
+
+  - categories = YAML.load(File.open("#{Rails.root}/config/configs.yml", 'r'))
+
+  - categories.each do |category_name, value|
+    %p= category_name
+    - value.each_pair do |value_name, options|
+      %p= value_name
+
+  %p
+    = f.submit
+
+

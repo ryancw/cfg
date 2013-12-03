@@ -1,0 +1,9 @@
+#DOTA2 CONFIGS
+graphics:
+  screen_color:
+    - red: 0
+    - green: 1
+    - blue: 2
+  character_style:
+    - dog: 0
+    - cat: 1
