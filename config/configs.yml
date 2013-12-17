@@ -1,9 +1,17 @@
 #DOTA2 CONFIGS
 graphics:
   screen_color:
-    - red: 0
-    - green: 1
-    - blue: 2
+    - [red, 0]
+    - [green, 1]
+    - [blue, 2]
   character_style:
-    - dog: 0
-    - cat: 1
+    - [dog, 0]
+    - [cat, 1]
+controls:
+  mouse_pos:
+    - [top, 0]
+    - [mid, 1]
+    - [bottom, 2]
+  mouse_speed:
+    - [slow, 0]
+    - [fast, 1]
