@@ -9,12 +9,16 @@
     %br
     = f.text_field :author
 
-  - categories = YAML.load(File.open("#{Rails.root}/config/configs.yml", 'r'))
-
-  - categories.each do |category_name, value|
-    %p= category_name
-    - value.each_pair do |value_name, options|
-      %p= value_name
+  %p
+    = f.label :configs
+    %br
+    - @categories.each do |category_name, value|
+      %h1= category_name
+      %br
+      - value.each_pair do |value_name, options|
+        = value_name
+        = f.select "configs[#{value_name}]".to_sym, options
+        %br
 
   %p
     = f.submit

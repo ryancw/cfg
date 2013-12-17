@@ -5,6 +5,7 @@ class ConfigFileController < ApplicationController
   end
 
   def new
+    @categories = YAML.load(File.open("#{Rails.root}/config/configs.yml", 'r'))
   end
 
   def create
@@ -13,8 +14,18 @@ class ConfigFileController < ApplicationController
     redirect_to @cfg
   end
 
+  def index
+    @cfgs = ConfigFile.all
+  end
+
+  def download
+    cfg = ConfigFile.find(params[:id])
+    send_data cfg.as_file,
+      filename: 'autoexec.cfg'
+  end
+
   private
   def cfg_params
-    params.require(:config_file).permit(:title, :author, :configs)
+    params.require(:config_file).permit!
   end
 end
